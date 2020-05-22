@@ -32,21 +32,21 @@
                 url: "http://openapi.seoul.go.kr:8088/6d4d776b466c656533356a4b4b5872/json/bikeList/1/99",
                 data: {}, // 요청하면서 함께 줄 데이터 (GET 요청시엔 비워두세요)
                 success: function (response) { // 서버에서 준 결과를 response라는 변수에 담음
-                    let rentbikestatus = response['rentBikeStatus']
-                    let district = rentbikestatus['row']
+                    let rentbikestatus = response['rentBikeStatus'];
+                    let district = rentbikestatus['row'];
                     $('#names-q1').empty();
 
                     for (let i = 0; i < district.length; i++) {
                         let list = district[i];
                         let st_name = list['stationName'];
-                        let rack_num = list['rackToTCnt'];
-                        let shared = list['shared'];
+                        let rack_num = list['rackTotCnt'];
+                        let parkingbike = list['parkingBikeTotCnt'];
                         let html_tr = `<tr>
                                         <td>${st_name}</td>
                                         <td>${rack_num}</td>
-                                        <td>${shared}</td>
+                                        <td>${parkingbike}</td>
                                       </tr>`;
-                        $('names-q1').append(html_tr);
+                        $('#names-q1').append(html_tr);
                     }
                     // console.log(response) // 서버에서 준 결과를 이용해서 나머지 코드를 작성
                 }

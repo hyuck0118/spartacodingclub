@@ -1,10 +1,26 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>스파르타코딩클럽 | HTML 기초</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+    <title>스파르타코딩클럽 | 부트스트랩 연습하기</title>
     <style>
         .productpage {
             margin: auto;
@@ -57,9 +73,9 @@
         </div>
         <div>
             <div class='explanation'>
-                <h2>3D Printer Prusa i3 MK3S Model</h2>
+                <h2>3D Printer Prusa i3 MK3S</h2>
                 <span>
-                    <h4>가격: 1,000,000원/개</h4>
+                    <h5>가격: 1,000,000원/개</h5>
                 </span>
             </div>
 
@@ -71,67 +87,51 @@
             <h2>주문하기</h2>
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
-                    <span class="input-group-text" id="basic-addon1">@</span>
+                    <span class="input-group-text" id="basic-addon1">주문자 성함:</span>
                 </div>
-                <input type="text" class="form-control" placeholder="Username" aria-label="Username"
+                <input type="text" class="form-control" placeholder="--성함--" aria-label="이름"
                     aria-describedby="basic-addon1">
             </div>
-
             <div class="input-group mb-3">
-                <input type="text" class="form-control" placeholder="Recipient's username"
-                    aria-label="Recipient's username" aria-describedby="basic-addon2">
-                <div class="input-group-append">
-                    <span class="input-group-text" id="basic-addon2">@example.com</span>
+                <div class="input-group-prepend">
+                    <label class="input-group-text" for="inputGroupSelect01">수량</label>
                 </div>
+                <select class="custom-select" id="inputGroupSelect01">
+                    <option selected>--수량--</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                </select>
             </div>
-            <p>주문자 성함:
-                <span>
-                    <input type='text' size=50 />
-                </span>
-            </p>
-            <p>수량: <input type='number' placeholder="***수량을 선택해 주십시오***" /> </p>
-            <p>주소:
-                <span>
-                    <input type='text' size=50 />
-                </span>
-            </p>
-            <p>전화번호:
-                <span>
-                    <input type='text' size=50 />
-                </span>
-            </p>
-            <p>
-                <button class='order'>
-                    주문하기
-                </button>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">주소:</span>
+                </div>
+                <input type="text" class="form-control" placeholder="--주소--" aria-label="주소"
+                    aria-describedby="basic-addon1">
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">전화번호:</span>
+                </div>
+                <input type="text" class="form-control" placeholder="--전화번호--" aria-label="번호"
+                    aria-describedby="basic-addon1">
+            </div>
+            <button class='order'>
+                주문하기
+            </button>
             </p>
         </div>
     </div>
 
-    <!-- 구역을 나누는 태그들 -->
-    <!-- <div>나는 구역을 나누죠</div>
-    <p>나는 문단이에요</p>
-    <ul>
-        <li> bullet point!1 </li>
-        <li> bullet point!2 </li>
-    </ul>-->
 
-    <!--구역 내 콘텐츠 태그들 -->
-    <!--<h1>h1은 제목을 나타내는 태그입니다. 페이지마다 하나씩 꼭 써주는 게 좋아요. 그래야 구글 검색이 잘 되거든요.</h1>
-    <h2>h2는 소제목입니다.</h2>
-    <h3>h3~h6도 각자의 역할이 있죠. 비중은 작지만..</h3>
-    <hr>
-    span 태그입니다: 특정 <span style="color:red">글자</span>를 꾸밀 때 써요
-    <hr>
-    a 태그입니다: <a href="http://naver.com/"> 하이퍼링크 </a>
-    <hr>
-    img 태그입니다: <img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" />
-    <hr>
-    input 태그입니다: <input type="text" />
-    <hr>
-    button 태그입니다: <button> 버튼입니다</button>
-    <hr>
-    textarea 태그입니다: <textarea>나는 무엇일까요?</textarea>-->
 </body>
 
 </html>
