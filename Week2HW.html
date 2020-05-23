@@ -22,6 +22,10 @@
 
     <title>스파르타코딩클럽 | 부트스트랩 연습하기</title>
     <style>
+        .dollar_rate {
+            color: royalblue;
+        }
+
         .productpage {
             margin: auto;
             width: 600px;
@@ -47,6 +51,7 @@
 
         .explanation span {
             float: right;
+            margin-top: 10px;
         }
 
         .order {
@@ -82,6 +87,9 @@
             <p>
                 이 전지전능한 프린터는 당신이 코로나때문에 집에 갇혀있어도 필요한 모든 것을 만들어 줄거에요. 자기복제가 가능하니 1+100개의 효과!
             </p>
+            <p class='dollar_rate' id='currency'>
+                달러-원 환율:
+            </p>
         </div>
         <div>
             <h2>주문하기</h2>
@@ -89,7 +97,7 @@
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="basic-addon1">주문자 성함:</span>
                 </div>
-                <input type="text" class="form-control" placeholder="--성함--" aria-label="이름"
+                <input type="text" class="form-control" id="cust_name" placeholder="--성함--" aria-label="이름"
                     aria-describedby="basic-addon1">
             </div>
             <div class="input-group mb-3">
@@ -114,22 +122,51 @@
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="basic-addon1">주소:</span>
                 </div>
-                <input type="text" class="form-control" placeholder="--주소--" aria-label="주소"
+                <input type="text" class="form-control" id="cust_add" placeholder="--주소--" aria-label="주소"
                     aria-describedby="basic-addon1">
             </div>
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="basic-addon1">전화번호:</span>
                 </div>
-                <input type="text" class="form-control" placeholder="--전화번호--" aria-label="번호"
+                <input type="text" class="form-control" id="cust_num" placeholder="--전화번호--" aria-label="번호"
                     aria-describedby="basic-addon1">
             </div>
-            <button class='order'>
+            <button class='order' onclick="absent()">
                 주문하기
             </button>
             </p>
         </div>
     </div>
+
+    <script>
+        function absent() {
+            let name = $('#cust_name').val();
+            let order = $('#inputGroupSelect01').val();
+            let address = $('#cust_add').val();
+            let number = $('#cust_num').val();
+
+            let cust_info = [{ '주문자': name }, { '수량': order }, { '주소': address }, { '전화번호': number }];
+            let cust_info_key = ['주문자', '수량', '주소', '전화번호'];
+
+            for (i = 0; i < cust_info.length; i++) {
+                if (cust_info[i][cust_info_key[i]] === '') {
+                    alert(`${cust_info_key[i]} 정보를 입력하여 주십시오`);
+                }
+            }
+        }
+
+        $.ajax({
+            type: "GET", // GET 방식으로 요청한다.
+            url: "https://api.manana.kr/exchange/rate.json",
+            data: {}, // 요청하면서 함께 줄 데이터 (GET 요청시엔 비워두세요)
+            success: function (response) { // 서버에서 준 결과를 response라는 변수에 담음// 여기에 환율 API Ajax 요청을 하면 되겠죠?
+                $('#currency').html();
+                let kor_won = response[1]['rate'];
+                $('#currency').text(`달러-원 환율: ${kor_won}`);
+            }
+        })
+    </script>
 
 
 </body>
