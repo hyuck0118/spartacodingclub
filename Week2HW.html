@@ -148,12 +148,14 @@
 
             let cust_info = [{ '주문자': name }, { '수량': order }, { '주소': address }, { '전화번호': number }];
             let cust_info_key = ['주문자', '수량', '주소', '전화번호'];
+            let absent_info = [];
 
             for (i = 0; i < cust_info.length; i++) {
                 if (cust_info[i][cust_info_key[i]] === '') {
-                    alert(`${cust_info_key[i]} 정보를 입력하여 주십시오`);
+                    absent_info.push(' ' + cust_info_key[i]);
                 }
             }
+            alert(absent_info + ' 정보를 입력하여 주십시오');
         }
 
         $.ajax({
